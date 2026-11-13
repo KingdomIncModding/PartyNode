@@ -20,7 +20,7 @@ Kingdom .Inc for Windows x64, BepInEx 5.x Windows x64, and Foundation 0.5.0 or l
 ## Installation
 
 1. Close Kingdom .Inc and install the requirements above.
-2. Download the player ZIP from [GitHub Releases](https://github.com/urakkaamyx/KingdomInc_PartyNode/releases) or the [Party-Up Nexus page](https://www.nexusmods.com/kingdominc/mods/5).
+2. Download the player ZIP from [GitHub Releases](https://github.com/KingdomIncModding/KingdomInc_PartyNode/releases) or the [Party-Up Nexus page](https://www.nexusmods.com/kingdominc/mods/5).
 3. Extract the ZIP into the folder containing `KingdomInc.exe`.
 4. Confirm the plugin is at `BepInEx/plugins/PartyNode/PartyNode.dll`.
 5. Start the game and open **Tech Tree → Mods → Party-Up**. Unlock **Adventurers' Guild**, research **Party Node**, and build it from **Utility**.
