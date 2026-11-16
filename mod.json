@@ -14,7 +14,7 @@
                        "topics":  [
 
                                   ],
-                       "latestTag":  "v0.7.0"
+                       "latestTag":  "v0.7.1"
                    },
     "distribution":  {
                          "nexus":  {
@@ -43,8 +43,8 @@
                                                     "Gameplay",
                                                     "Quality of Life"
                                                 ],
-                                       "tagsVerified":  false,
-                                       "requirementsVerified":  false
+                                       "tagsVerified":  true,
+                                       "requirementsVerified":  true
                                    }
                      },
     "development":  {
@@ -58,7 +58,7 @@
                         "gameIntegration":  "Foundation"
                     },
     "publishing":  {
-                       "githubReleases":  "https://github.com/KingdomIncModding/PartyNode/releases/tag/v0.7.0",
+                       "githubReleases":  "https://github.com/KingdomIncModding/PartyNode/releases/tag/v0.7.1",
                        "nexusMods":  "https://www.nexusmods.com/kingdominc/mods/5"
                    }
 }
