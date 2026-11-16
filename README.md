@@ -1,60 +1,36 @@
 # Party-Up
 
-Party-Up adds a configurable Party Node to Kingdom .Inc. Assemble a party of up to five adventurers, then send the group together when its destination has enough room.
-
-The mod is published as **Party-Up**. Its plugin, source project, and in-game building are named **PartyNode / Party Node**.
+Assemble an exact party of up to five adventurers, then send everyone together.
 
 ## Features
 
-- Five individual adventurer inputs and one output for the whole group.
-- Configurable counts of Adventurers, Fighters, Rogues, Mages, and Clerics.
-- Manual dispatch, including incomplete parties, with a researchable Auto Send upgrade.
-- Capacity checks that keep a party together when a destination is full.
-- Live adventurers walking around the meetup room while they wait.
-- Persistent settings, members, research, and installed upgrades.
-
-## Requirements
-
-Kingdom .Inc for Windows x64, BepInEx 5.x Windows x64, and Foundation 0.5.0 or later, installed separately.
+- **Party Node building:** Unlocked via **Tech Tree > Mods > Party-Up** after researching **Adventurers' Guild**, then built from **Utility**.
+- **Flexible lineup up to 5 members:** Configure required counts across **Adventurer**, **Fighter**, **Rogue**, **Mage**, and **Cleric** using the node's gear icon (`0` disables a class; `Adventurer` accepts ordinary adventurers only; advanced classes match their base archetype).
+- **Manual or Auto Send:** **Send now** is the default, allowing full or partial party releases when the receiver has room. Research **Auto Send** in the Party Node branch and install it in the node's `+` upgrade slot to automatically send complete lineups.
+- **Atomic whole-party transfers:** Checks real internal occupancy and queued arrivals on stockpiles, inns, quest boards, training grounds, dungeons, and other Party Nodes before releasing anyone. A blocked party stays buffered without partial transfers.
+- **Live meetup room & save preservation:** Waiting adventurers walk around the meetup room table, and saves preserve equipment, quality, identities, settings, and upgrades.
 
 ## Installation
 
-1. Close Kingdom .Inc and install the requirements above.
-2. Download the player ZIP from [GitHub Releases](https://github.com/KingdomIncModding/PartyNode/releases) or the [Party-Up Nexus page](https://www.nexusmods.com/kingdominc/mods/5).
-3. Extract the ZIP into the folder containing `KingdomInc.exe`.
-4. Confirm the plugin is at `BepInEx/plugins/PartyNode/PartyNode.dll`.
-5. Start the game and open **Tech Tree → Mods → Party-Up**. Unlock **Adventurers' Guild**, research **Party Node**, and build it from **Utility**.
+1. Close Kingdom Inc. and install **BepInEx 5** and **Foundation 0.14.6+** separately.
+2. Extract the mod folder into `BepInEx/plugins/PartyUp/` (containing `PartyUp.dll` and `mod.json`).
+3. Start the game, research **Party Node** under **Tech Tree > Mods > Party-Up**, and build it from **Utility**.
 
-To update, close the game and replace the existing `PartyNode.dll`. Avoid installing duplicate copies.
+## Updating and Removal
 
-## Configure a party
+- Before uninstalling, send any waiting adventurers, remove any placed Party Nodes, save, and close the game.
+- Back up your kingdom save before adding or removing mods.
 
-Click the node's **gear** and use the minus/plus controls to choose a lineup of at most five members total. Settings apply immediately.
+## Compatibility
 
-The five **green inputs** are individual party slots, filled in Adventurer, Fighter, Rogue, Mage, then Cleric order. For **3 Fighters, 1 Mage, and 1 Cleric**, they accept Fighter / Fighter / Fighter / Mage / Cleric. Class indicators show the expected member; unused slots accept nothing. The **blue output** sends the group to its connected receiver.
-
-A count of zero removes that class from the lineup. **None / Adventurer** means an ordinary Adventurer, not any class. Advanced classes match their base archetype. Conscripts and unrelated items are rejected.
-
-## Send a party
-
-Manual sending is the default. Click **Send now** to dispatch waiting members, even if the selected lineup is incomplete. The destination must have room for every member being sent.
-
-For automatic dispatch, open the **Party Node** research branch and research **Auto Send**, then click the **+ upgrade slot** at the bottom of a Party Node to buy and install it. Research alone leaves a node manual. Remove the upgrade through the same slot to return to manual dispatch.
-
-Auto Send waits until every selected slot is filled and the receiver can accept the entire group. A full party stays at the node if the receiver has insufficient space. An all-zero lineup sends nothing automatically.
-
-Stockpiles, inns, quest boards, and training grounds count both occupied spaces and queued arrivals. Dungeon and Party Node receivers use compatible free adventurer slots, excluding slots connected to other sources. Other destinations need enough room in the connected input itself.
-
-The mod sends the original adventurers together. It does not create a new party item or change dungeon party-size limits. Lowering a count does not delete waiting members; use **Send now** to clear a previous lineup when necessary.
-
-## Saves and removal
-
-Saves retain the lineup, waiting adventurers, pending output, and upgrades. Copies preserve settings and installed upgrades without duplicating adventurers.
-
-Older enabled Auto Send settings migrate to an installed upgrade. Legacy buffers containing more than five members are preserved in a recovery reserve and can be sent in batches of up to five.
-
-Keep this mod installed while loading a kingdom containing Party Nodes. Before uninstalling, send all waiting members, remove the Party Nodes, save the kingdom, and close the game. Then remove `BepInEx/plugins/PartyNode/PartyNode.dll`.
-
-## Credits
-
-Mod code and custom generated artwork by Urakka. Native game UI and class sprites are read from the installed game. BepInEx and Harmony retain their respective authorship and are not bundled.
+| Class.Method | Hook Type | Impact |
+|---|---|---|
+| `FlowIO.CanAcceptItem` | Prefix | Enforces Party Node per-slot archetype filters and five-member party acceptance rules. |
+| `FlowPipe.Update` | Prefix | Transfers buffered Party Node members atomically only when the receiver has room for the entire batch. |
+| `FlowPrefabManager.Get` | Postfix | Supplies the custom 384x224 Party Node prefab, upgrade slot, and meetup artwork. |
+| `FlowUpgrade.Create` | Prefix | Instantiates the `PartyAutoSend` upgrade from saved games and resolves native upgrades cleanly. |
+| `GamePlayer.FromJson` | Postfix | Restores the Party Node upgrade slot and Auto Send availability when loading researched saves. |
+| `SpriteLibrary.Get` | Prefix | Resolves the custom Party Meetup room and research icon sprites. |
+| `UIElementTechNode.SetTech` | Postfix | Preserves aspect ratio and wide layout for Party Node research artwork. |
+| `BuyMenuRow.SetElement` | Postfix | Preserves aspect ratio for the Party Node build-menu icon. |
+| `WorldFlowIO.SetIO` | Foundation `PortBound` | Keeps Party Node input ports green and output port blue. |

@@ -1,0 +1,64 @@
+{
+    "id":  "urakka.kingdominc.partynode",
+    "name":  "Party-Up",
+    "version":  "0.7.1",
+    "author":  "Urakka",
+    "description":  "For Kingdom Inc game version 1.0.14. Assemble an exact party of up to five adventurers across archetype inputs, configure counts, and send the whole party together.",
+    "repository":  {
+                       "platform":  "GitHub",
+                       "owner":  "KingdomIncModding",
+                       "name":  "PartyNode",
+                       "url":  "https://github.com/KingdomIncModding/PartyNode",
+                       "branch":  "main",
+                       "visibility":  "public",
+                       "topics":  [
+
+                                  ],
+                       "latestTag":  "v0.7.0"
+                   },
+    "distribution":  {
+                         "nexus":  {
+                                       "game":  "kingdominc",
+                                       "modId":  5,
+                                       "fileId":  8293731,
+                                       "url":  "https://www.nexusmods.com/kingdominc/mods/5",
+                                       "requirements":  [
+                                                            {
+                                                                "name":  "Foundation",
+                                                                "url":  "https://www.nexusmods.com/kingdominc/mods/18",
+                                                                "minimumVersion":  "0.14.6",
+                                                                "type":  "nexus",
+                                                                "fileId":  8358756
+                                                            },
+                                                            {
+                                                                "name":  "BepInEx 5",
+                                                                "url":  "https://github.com/BepInEx/BepInEx/releases",
+                                                                "minimumVersion":  "5.x",
+                                                                "type":  "offsite"
+                                                            }
+                                                        ],
+                                       "tags":  [
+                                                    "AI-Generated Content",
+                                                    "AI Media",
+                                                    "Gameplay",
+                                                    "Quality of Life"
+                                                ],
+                                       "tagsVerified":  false,
+                                       "requirementsVerified":  false
+                                   }
+                     },
+    "development":  {
+                        "framework":  "Foundation",
+                        "language":  "C#",
+                        "target":  "netstandard2.1",
+                        "dependencies":  [
+                                             "BepInEx 5",
+                                             "Foundation \u003e= 0.14.6"
+                                         ],
+                        "gameIntegration":  "Foundation"
+                    },
+    "publishing":  {
+                       "githubReleases":  "https://github.com/KingdomIncModding/PartyNode/releases/tag/v0.7.0",
+                       "nexusMods":  "https://www.nexusmods.com/kingdominc/mods/5"
+                   }
+}
