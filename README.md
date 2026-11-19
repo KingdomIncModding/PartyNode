@@ -1,5 +1,7 @@
 # Party-Up
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6V62AX30M)
+
 Assemble an exact party of up to five adventurers, then send everyone together.
 
 ## Features
@@ -34,3 +36,9 @@ Assemble an exact party of up to five adventurers, then send everyone together.
 | `UIElementTechNode.SetTech` | Postfix | Preserves aspect ratio and wide layout for Party Node research artwork. |
 | `BuyMenuRow.SetElement` | Postfix | Preserves aspect ratio for the Party Node build-menu icon. |
 | `WorldFlowIO.SetIO` | Foundation `PortBound` | Keeps Party Node input ports green and output port blue. |
+
+## Support
+
+If you enjoy these Kingdom Inc mods and tools, consider supporting development on Ko-fi!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6V62AX30M)
