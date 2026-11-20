@@ -1,6 +1,6 @@
 # Party-Up
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/urakkaamyx/tip)
+[![Support on Ko-fi](https://raw.githubusercontent.com/KingdomIncModding/.github/main/assets/kofi-button.png)](https://ko-fi.com/urakkaamyx/tip)
 
 Assemble an exact party of up to five adventurers, then send everyone together.
 
@@ -39,6 +39,4 @@ Assemble an exact party of up to five adventurers, then send everyone together.
 
 ## Support
 
-If you enjoy these Kingdom Inc mods and tools, consider supporting development on Ko-fi!
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/urakkaamyx/tip)
+If you enjoy these Kingdom Inc mods and tools, consider supporting development on [**Ko-fi**](https://ko-fi.com/urakkaamyx/tip)!
